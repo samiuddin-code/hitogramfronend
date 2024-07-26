@@ -15,7 +15,7 @@ const PuzzleGrid: React.FC<{ difficulty: string }> = ({ difficulty }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get<PuzzleResponse>(` http://159.89.104.127:3001/puzzle/generate?difficulty=${difficulty}`);
+      const response = await axios.get<PuzzleResponse>(`http://159.89.104.127:3001/puzzle/generate?difficulty=${difficulty}`);
       if (response.data?.grid) {
    
 
@@ -81,7 +81,7 @@ const PuzzleGrid: React.FC<{ difficulty: string }> = ({ difficulty }) => {
     const completionTime = Math.floor((Date.now() - startTime) / 1000); // Calculate completion time in seconds
 
     try {
-      const response = await axios.post<SubmitResponse>('http://localhost:3001/puzzle/submit', {
+      const response = await axios.post<SubmitResponse>('http://159.89.104.127:3001/puzzle/submit', {
         username: 'testUser',
         puzzleId: puzzleId,
         solution: pairs,

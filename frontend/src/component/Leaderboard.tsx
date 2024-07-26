@@ -16,7 +16,7 @@ const Leaderboard: React.FC = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get<User[]>('http://localhost:3001/puzzle/leaderboard');
+        const response = await axios.get<User[]>('http://159.89.104.127:3001/puzzle/leaderboard');
         setUsers(response.data);
       } catch (error) {
         setError('Failed to load leaderboard.');
